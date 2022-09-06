@@ -2,7 +2,7 @@ import { appState } from '../AppState.js';
 
 class SnacksService {
   buyItem(name) {
-    console.log(name, 'buyItem() service');
+    // console.log(name, 'buyItem() service');
     let snack = appState.snacks.find((p) => p.name == name);
     console.log(snack);
     snack.buyItem();

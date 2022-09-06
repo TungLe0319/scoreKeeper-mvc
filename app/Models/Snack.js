@@ -8,9 +8,10 @@ export class Snack {
   // -----------------------
   // builds the object snack is blueprint, constructor turns it into an actual object
   // lets values be created on snack creation
-  constructor(name, price) {
+  constructor(name, price,url) {
     this.name = name;
     this.price = price;
+    this.url = url
   }
   buyItem() {
     this.price++;
@@ -20,10 +21,31 @@ export class Snack {
   // function that returns a value that doesn't have to be ran
   // now that it's in the snack the "p" no longer works and must use ".this" now.
   get Template() {
-    return `<div class="col-md-6 text-center p-2 bg-light elevation-3">
-    <h3>${this.name}</h3>
-    <h3>${this.price}</h3>
-    <button class="btn btn-primary" onclick="app.SnackController.buyItem('${this.name}')">+</button>
-   </div>`;
+    return `  <div class="card m-2  elevation-3" style="width: 18rem">
+    <img
+      src="${this.url}"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body bg-dark text-light rounded-bottom">
+      <h5 class="card-title">${this.name}</h5>
+      <p class="card-text">
+        Some 
+      </p>
+      <button class="btn btn-danger " onclick="app.SnackController.buyItem('${this.name}')">Buy</button>
+      <span class="text-light fs-3"><p>${this.price}</p></span>
+    </div>
+  </div>`;
   }
+
+
+get cartTemplate(){
+  return `<div class=" bg-dark text-light rounded-bottom">
+  <h5 class="card-title">${this.name}</h5>
+  <p class="card-text">
+    Some 
+  </p>
+  <span class="text-light fs-3"><p>${this.price}</p></span>
+</div>`
+}
 }

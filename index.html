@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      href="https://bcw.blob.core.windows.net/public/img/9977764104160066"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
+      integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/style/main.css" />
+    <link rel="stylesheet" href="assets/style/style.css" />
+    <title>Sushi Vendor</title>
+  </head>
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
-    integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="assets/style/main.css">
-  <link rel="stylesheet" href="assets/style/style.css">
-  <title>scoreKeeper-mvc</title>
-</head>
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
 
-<body>
-  <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">scoreKeeper-mvc</span>
-      </a>
-    </nav>
-  </header>
-  <main>
-    <div class="container-fluid">
-      <div class="row" id="snacks">
-        
-          <!-- NOTE to access your controller ou must go through the layers -->
-         <!-- <button class="btn btn-danger" onclick="app.SnacksController.buyItem('Poke Bowl')">BuyItem</button> -->
-       <!-- STUB snack -->
-       <!-- <div class="col-md-6 text-center p-2 bg-light elevation-3">
-        <h3>Sushi Platter</h3>
-        <h3>32</h3>
-        <button class="btn btn-primary">+</button>
-       </div> -->
-       <!-- end snack -->
+    body.debug [class*='col-'] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
+  <body class="debug">
+    <header>
+      <nav
+        class="navbar navbar-dark navbar-expand bg-dark text-light no-select"
+      >
+        <a class="navbar-brand ms-3" href="#">
+          <img
+            src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png"
+            height="45"
+            alt=""
+            loading="lazy"
+          />
+          <span class="ms-2"
+            >Sushi Vendor <i class="mdi mdi-cat fs-1"></i
+          ></span>
+        </a>
+        <div class=""><button class="btn btn-info">add .25</button></div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <!-- drawSnacks here -->
+        <div class="row">
+          <div
+            class="col-9 d-flex flex-wrap justify-content-center"
+            id="snacks"
+          ></div>
+          <div class="col-md-3 bg-dark text-light">
+            <h1>Monies</h1>
+            <h2>#GetRich</h2>
+            <div id="cart" class="border border-5 p-5">
+              
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p><small>Made with 💖 by CodeWorks</small></p>
-    </div>
-  </footer>
+    </main>
+    <footer class="bg-dark text-light">
+      <div class="text-center no-select">
+        <p><small>Made with 💖 by CodeWorks</small></p>
+      </div>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
-    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
-  <script src="app/App.js" type="module"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+      integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="app/App.js" type="module"></script>
+  </body>
 </html>
