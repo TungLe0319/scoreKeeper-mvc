@@ -2,35 +2,59 @@ import { appState } from '../AppState.js';
 // import { Snack } from '../Models/Snack.js';
 import { snacksService } from '../Services/SnacksService.js';
 
-function _drawPlayers() {
+function _drawSnacks() {
   let snacks = appState.snacks;
   let template = '';
-  snacks.forEach((s) => template += s.Template);
+  snacks.forEach((s) => (template += s.Template));
   document.getElementById('snacks').innerHTML = template;
+}
+
+function _drawCart() {
+  let cartSnacks = appState.snacks;
+  let template = '';
+  cartSnacks.forEach((p) => {
+    if (p.amount > 0) {
+      template += p.cartTemplate
+    }
+  });
+  // cartSnacks.forEach(s => template += s.cartTemplate)
+  document.getElementById('cart').innerHTML = template;
+}
+
+function _drawTotal(){
+  let total = 0
+ let totalDOM= document.getElementById('total')
+  let snacks = appState.snacks
+snacks.forEach(snack =>{
+  total += snack.price*snack.amount
+})
+totalDOM.innerText=total
+}
+
+function _raisePrice(){
+  let snacks = appState.snacks
+snacks.forEach(s=>{
+  s.price++
+})
 }
 export class SnackController {
   constructor() {
     // new plat ('Mick,0)
     // console.log({ name: 'Sushi Platter', price: 32 });
     // new Snack('Poke Bowl', 3.25).buyItem();
-_drawPlayers()
+    _drawSnacks();
   }
 
   buyItem(name) {
     console.log(name, 'buying Item');
     snacksService.buyItem(name);
-    _drawPlayers()
+    _drawSnacks();
+    _drawCart();
+    _drawTotal()  
   }
-  //   drawPlayers(){
-  // let snacks = appState.snacks
-  // let template = ''
-  // snacks.forEach(s=>{
-  //   template += `<div class="col-md-6 text-center p-2 bg-light elevation-3">
-  //   <h3>${s.name}</h3>
-  //   <h3>${s.price}</h3>
-  //   <button class="btn btn-primary" onclick="app.SnackController.buyItem(${s.name})">+</button>
-  //  </div>`
-  // })
-  // document.getElementById('snacks').innerHTML = template
-  //   }
+  raisePrice(){
+    snacksService.raisePrice()
+   _drawSnacks()
+    _raisePrice()
+  }
 }

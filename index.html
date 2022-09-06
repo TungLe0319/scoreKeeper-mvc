@@ -52,7 +52,7 @@
             >Sushi Vendor <i class="mdi mdi-cat fs-1"></i
           ></span>
         </a>
-        <div class=""><button class="btn btn-info">add .25</button></div>
+        <div class=""><button class="btn btn-info" onclick="app.SnackController.raisePrice()">add .25</button></div>
       </nav>
     </header>
     <main>
@@ -67,7 +67,13 @@
             <h1>Monies</h1>
             <h2>#GetRich</h2>
             <div id="cart" class="border border-5 p-5">
-              
+
+            </div>
+            <div class="col-12">Total:</div>
+            <!-- need a draw total -->
+            <div class="border border-3 p-4">
+              <span class="fs-3">$</span>
+              <span id="total" class="fs-3"></span>
             </div>
           </div>
         </div>
