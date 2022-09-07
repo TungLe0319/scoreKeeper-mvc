@@ -3,11 +3,7 @@
 // description of what an object suppose to look like
 // better not to hard code values
 export class Snack {
-  // name = 'Sushi Platter';
-  // price = 32.99;
-  // -----------------------
-  // builds the object snack is blueprint, constructor turns it into an actual object
-  // lets values be created on snack creation
+
   constructor(name, price,amount,url) {
     this.name = name;
     this.price = price;
@@ -52,6 +48,7 @@ get cartTemplate(){
   <p class="card-title">${this.name}</p>
   
   <span class="text-light d-flex"<p>$${this.price*this.amount}</p><span >x${this.amount}</span></span>
+  <i class="mdi mdi-trash-can fs-3" onclick="app.SnackController.removeItem('${this.name}')"></i>
 </div>`
 }
 }

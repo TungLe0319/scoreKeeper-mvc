@@ -1,5 +1,5 @@
 import { appState } from '../AppState.js';
-// import { Snack } from '../Models/Snack.js';
+import { Snack } from '../Models/Snack.js';
 import { snacksService } from '../Services/SnacksService.js';
 
 function _drawSnacks() {
@@ -20,6 +20,8 @@ function _drawCart() {
   // cartSnacks.forEach(s => template += s.cartTemplate)
   document.getElementById('cart').innerHTML = template;
 }
+
+
 
 function _drawTotal(){
   let total = 0
@@ -44,6 +46,21 @@ export class SnackController {
     // new Snack('Poke Bowl', 3.25).buyItem();
     _drawSnacks();
   }
+
+
+  removeItem(name){
+    snacksService.removeItem(name)
+    _drawCart()
+    _drawSnacks()
+    _drawTotal()
+  }
+
+buyCart(){
+snacksService.buyCart()
+  _drawCart()
+  _drawTotal()
+  console.log('hiu');
+}
 
   buyItem(name) {
     console.log(name, 'buying Item');

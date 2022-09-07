@@ -26,6 +26,19 @@ class SnacksService {
   }
 
 
+  buyCart(){
+    appState.snacks.forEach(snack =>{
+      snack.amount= 0
+    })
+  }
+
+
+
+removeItem(name){
+ let snack= appState.snacks.find(snack => snack.name == name)
+snack.amount--
+}
+
 }
 
 
