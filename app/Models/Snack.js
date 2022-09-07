@@ -18,7 +18,7 @@ export class Snack {
     ;
   this.amount++
  
-    // console.log('price Increased', this.price);
+  
   }
 
 
@@ -27,7 +27,7 @@ export class Snack {
   // function that returns a value that doesn't have to be ran
   // now that it's in the snack the "p" no longer works and must use ".this" now.
   get Template() {
-    return `  <div class="card m-2  elevation-3" style="width: 18rem">
+    return `  <div class="card m-2  elevation-3" style="width: 15rem">
     <img
       src="${this.url}"
       class="card-img-top"
@@ -38,9 +38,9 @@ export class Snack {
       <p class="card-text">
         Some 
       </p>
+      <span class="text-light fs-3 "><p>${this.price}</p>
       <button class="btn btn-danger " onclick="app.SnackController.buyItem('${this.name}')">Buy</button>
-      <span class="text-light fs-3"><p>${this.price}</p>
-      <span class="text-light fs-3"><p>${this.amount}</p></span></span>
+   
       
     </div>
   </div>`;

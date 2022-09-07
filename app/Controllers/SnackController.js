@@ -28,7 +28,7 @@ function _drawTotal(){
 snacks.forEach(snack =>{
   total += snack.price*snack.amount
 })
-totalDOM.innerText=total
+totalDOM.innerText=total.toFixed(2)
 }
 
 function _raisePrice(){
